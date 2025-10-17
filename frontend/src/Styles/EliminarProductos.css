@@ -1,0 +1,65 @@
+.eliminar-container {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.eliminar-titulo {
+    color: #20B2AA;
+}
+
+.eliminar-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.eliminar-card.hover {
+    transform: translateY(-5px);
+}
+
+.eliminar-card-img {
+    height: 200px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.eliminar-titulo-card {
+    font-size: 0.9rem;
+    height: 40px;
+    overflow: hidden;
+}
+
+.eliminar-badge {
+    background-color: #20B2AA;
+    color: white;
+}
+
+.eliminar-descripcion {
+    height: 60px;
+    overflow: hidden;
+}
+
+.eliminar-btn {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.eliminar-btn:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+.eliminar-modal-titulo {
+    color: #dc3545;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
