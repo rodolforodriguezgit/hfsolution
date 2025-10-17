@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+### Proyecto Full-Stack - React + Node.js + PostgreSQL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Descripción del Proyecto
 
-## Available Scripts
+Frontend: Aplicación React con componentes para gestión de productos y categorías
 
-In the project directory, you can run:
+Backend: API REST con Node.js y Express
 
-### `npm start`
+Base de Datos: PostgreSQL con pgAdmin para administración
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Contenedores: Docker Compose para orquestación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requisitos
 
-### `npm test`
+Docker (versión 20.10+)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instrucciones 
 
-### `npm run build`
+* Crear una carpeta Hfsolution (cualquier nombre distintivo)
+* cd "carpeta creada"
+* git clone https://github.com/rodolforodriguezgit/hfsolution.git
+* verificar la version de Docker (docker -version)
+* en a raiz del proyecto a nivel del archivo docker-compose ejecutar el comando docker-compose up --build
+* se vera un mensaje de docker-compose up Compiled successfully! 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### contenedor corriendo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend	http://localhost:3000	   Aplicación React
+Backend	http://localhost:5000		   API REST
+PostgreSQL	localhost:5432		       Base de datos
+pgAdmin	http://localhost:8080		   Administración BD
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Credenciales pgAdmin:
 
-### `npm run eject`
+Email: admin@hfsolucion.com
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Password: supersecret
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Configuración de servidor en pgAdmin:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Host: postgres
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Port: 5432
 
-## Learn More
+Database: mi_base
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Username: postgres
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Password: postgres
