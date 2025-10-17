@@ -51,3 +51,5 @@ Password: postgres
 #### carga de datos
 
 en un inicio carga pobla los datos con json con los datos recibidos en el correo
+
+## aplicacion en localhost:3000

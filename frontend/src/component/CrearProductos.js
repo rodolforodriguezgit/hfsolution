@@ -21,7 +21,7 @@ function CrearProductos() {
     const [formErrors, setFormErrors] = useState({});
 
 
-        useEffect(() => {
+    useEffect(() => {
         window.scrollTo({
             top: 0,
             left: 0,
@@ -39,7 +39,7 @@ function CrearProductos() {
             setCategoriesLoading(true);
             const response = await fetch('http://localhost:5000/category');
             const result = await response.json();
-            
+
             if (result.success) {
                 setCategories(result.data);
             } else {
@@ -169,8 +169,13 @@ function CrearProductos() {
 
 
             if (result.success) {
+
                 setSuccess(true);
-                // Limpiar formulario
+                window.scrollTo({
+                    top: 150,
+                    behavior: 'smooth'
+                });
+
                 setFormData({
                     title: '',
                     price: '',
@@ -213,7 +218,7 @@ function CrearProductos() {
                             <h3 className="mb-0">Crear Nuevo Producto</h3>
                             <small>Todos los campos son obligatorios</small>
                         </Card.Header>
-                        
+
                         <Card.Body className="crear-productos-body">
                             {success && (
                                 <Alert variant="success" className="crear-productos-alert success">
