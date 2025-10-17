@@ -1,0 +1,17 @@
+# frontend/Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY package*.json ./
+RUN npm install
+
+# Copiar todo el código
+COPY . .
+
+# Exponer puerto de desarrollo
+EXPOSE 3000
+
+# Usar el script de desarrollo de React
+CMD ["npm", "start"]

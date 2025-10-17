@@ -1,0 +1,32 @@
+.custom-navbar {
+  background: linear-gradient(90deg, #66c2ff, #4db6ac); /* azul claro → azul verdoso */
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand-custom {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-link-custom {
+  color: #e0f7fa !important; /* azul muy claro */
+  font-weight: 500;
+  margin-left: 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link-custom:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.custom-toggler {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.custom-toggler:focus {
+  box-shadow: none;
+}

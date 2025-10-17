@@ -1,0 +1,109 @@
+{
+  "categories": [
+    { "id": 1, "name": "ropa de hombre" },
+    { "id": 2, "name": "joyería" },
+    { "id": 3, "name": "electrónica" }
+  ],
+  "products": [
+   {
+		"id": 1,
+		"title": "Fjallraven - Mochila Foldsack No. 1, para laptops de 15 pulgadas",
+		"price": 109.95,
+		"description": "Tu mochila perfecta para el uso diario y paseos por el bosque. Guarda tu laptop (hasta 15 pulgadas) en la funda acolchada, tu compañera de todos los días",
+
+		"category_id": 1,
+		"image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+		"rating": { "rate": 3.9, "count": 120 }
+	},
+	{
+		"id": 2,
+		"title": "Camisetas de hombre casual premium slim fit",
+		"price": 22.3,
+		"description": "Estilo ajustado, manga larga raglán en contraste, placket henley de tres botones, tela ligera y suave para un uso transpirable y cómodo. Camisetas cosidas sólidas con cuello redondo, hechas para durabilidad y gran ajuste para moda casual y fanáticos del béisbol. El escote redondo estilo Henley incluye un placket de tres botones.",
+
+		"category_id": 1,
+		"image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
+		"rating": { "rate": 4.1, "count": 259 }
+	},
+	{
+		"id": 3,
+		"title": "Chaqueta de algodón para hombre",
+		"price": 55.99,
+		"description": "Excelentes chaquetas de abrigo para primavera/otoño/invierno, adecuadas para muchas ocasiones, como trabajo, senderismo, campamento, escalada, ciclismo, viajes u otras actividades al aire libre. Buena opción de regalo para ti o un familiar. Un cariñoso regalo para padre, esposo o hijo en este Día de Acción de Gracias o Navidad.",
+
+		"category_id": 1,
+		"image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
+		"rating": { "rate": 4.7, "count": 500 }
+	},
+	{
+		"id": 4,
+		"title": "Slim Fit casual para hombre",
+		"price": 15.99,
+		"description": "El color podría ser ligeramente diferente entre la pantalla y la práctica. / Ten en cuenta que las complexiones varían según la persona, por lo tanto, revisa la información de tallas detallada más abajo en la descripción del producto.",
+
+		"category_id": 1,
+		"image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png",
+		"rating": { "rate": 2.1, "count": 430 }
+	},
+	{
+		"id": 5,
+		"title": "Pulsera John Hardy Women's Legends Naga Oro y Plata con Estación Dragón",
+		"price": 695,
+		"description": "De nuestra Colección Legends, el Naga se inspiró en el mítico dragón de agua que protege la perla del océano. Llévalo hacia adentro para recibir amor y abundancia, o hacia afuera para protección.",
+
+		"category_id": 2,
+		"image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png",
+		"rating": { "rate": 4.6, "count": 400 }
+	},
+	{
+		"id": 6,
+		"title": "Oro macizo petite micropavé",
+		"price": 168,
+		"description": "Satisfacción garantizada. Devuelve o cambia cualquier pedido dentro de los 30 días. Diseñado y vendido por Hafeez Center en Estados Unidos. Satisfacción garantizada. Devuelve o cambia cualquier pedido dentro de los 30 días.",
+
+		"category_id": 2,
+		"image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png",
+		"rating": { "rate": 3.9, "count": 70 }
+	},
+	{
+		"id": 7,
+		"title": "Anillo Princesa chapado en oro blanco",
+		"price": 9.99,
+		"description": "Anillo de compromiso clásico con solitario de diamante creado para ella. Regalos para consentir más a tu amor en compromiso, boda, aniversario, Día de San Valentín...",
+
+		"category_id": 2,
+		"image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
+		"rating": { "rate": 3, "count": 400 }
+	},
+	{
+		"id": 8,
+		"title": "Pierced Owl Túnel Doble Acampanado Acero Inoxidable Chapado en Oro Rosa",
+		"price": 10.99,
+		"description": "Túneles dobles acampanados chapados en oro rosa. Hechos de acero inoxidable 316L",
+
+		"category_id": 2,
+		"image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png",
+		"rating": { "rate": 1.9, "count": 100 }
+	},
+	{
+		"id": 9,
+		"title": "Disco duro externo portátil WD 2TB Elements - USB 3.0",
+		"price": 64,
+		"description": "Compatibilidad USB 3.0 y USB 2.0, transferencias rápidas de datos, mejora el rendimiento de la PC, alta capacidad. Formateado en NTFS para Windows 10, 8.1 y 7; puede requerir reformateo para otros sistemas operativos; la compatibilidad puede variar según la configuración del hardware y el sistema operativo del usuario.",
+
+		"category_id": 3,
+		"image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_t.png",
+		"rating": { "rate": 3.3, "count": 203 }
+	},
+	{
+		"id": 10,
+		"title": "SanDisk SSD PLUS 1TB Interno - SATA III 6 Gb/s",
+		"price": 109,
+		"description": "Fácil actualización para un arranque más rápido, apagado, carga de aplicaciones y respuesta (comparado con un disco duro SATA de 5400 RPM de 2.5”). Mejora el rendimiento de escritura en ráfaga, ideal para cargas típicas de PC. El equilibrio perfecto entre rendimiento y fiabilidad. Velocidades de lectura/escritura de hasta 535MB/s/450MB/s (según pruebas internas; el rendimiento puede variar según capacidad, dispositivo anfitrión, SO y aplicación).",
+
+		"category_id": 3,
+		"image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png",
+		"rating": { "rate": 2.9, "count": 470 }
+	}
+  ]
+}
