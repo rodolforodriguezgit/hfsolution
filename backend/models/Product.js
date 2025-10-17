@@ -131,7 +131,6 @@ class Product {
       const ratingRate = toNumNullable(productData.rating?.rate ?? productData.rating_rate ?? productData.ratingRate ?? null);
       const ratingCount = toIntNullable(productData.rating?.count ?? productData.rating_count ?? productData.ratingCount ?? null);
 
-      console.log('Actualizando producto con datos:', { id, title, price, description, categoryId, image, ratingRate, ratingCount });
 
       const result = await client.query(`
         UPDATE products 
@@ -156,7 +155,7 @@ class Product {
           created_at as "createdAt"
       `, [title, price, description, categoryId, image, ratingRate, ratingCount, id]);
 
-      console.log('Resultado de la actualización:', result.rows[0]);
+
       return result.rows[0];
     } catch (error) {
       console.error('Error en Product.update:', error);

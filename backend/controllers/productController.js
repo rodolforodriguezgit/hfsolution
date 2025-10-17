@@ -65,20 +65,18 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log('Actualizando producto ID:', id);
-    console.log('Datos recibidos:', req.body);
     
     const product = await Product.update(id, req.body);
     
     if (!product) {
-      console.log('Producto no encontrado con ID:', id);
+
       return res.status(404).json({
         success: false,
         error: 'Producto no encontrado'
       });
     }
     
-    console.log('Producto actualizado exitosamente:', product);
+
     res.json({
       success: true,
       data: product,

@@ -9,6 +9,28 @@ function ListarProductos() {
     const [error, setError] = useState(null);
     const [expandedDescriptions, setExpandedDescriptions] = useState({});
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
+    // Función para truncar texto largo
+    const truncateText = (text, maxLength = 100) => {
+        if (!text) return '';
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+    };
+
+    // Función para truncar título
+    const truncateTitle = (title, maxLength = 50) => {
+        if (!title) return '';
+        if (title.length <= maxLength) return title;
+        return title.substring(0, maxLength) + '...';
+    };
+
     // Función para obtener imagen aleatoria
     const getRandomImage = (productId) => {
         const imageServices = [
@@ -17,20 +39,9 @@ function ListarProductos() {
         return imageServices[productId % imageServices.length];
     };
 
-    // Función para truncar texto largo (solo si es muy extenso)
-    const truncateText = (text, maxLength = 200) => {
-        if (text.length <= maxLength) return text;
-        return text.substring(0, maxLength) + '...';
-    };
-
-    // Función para truncar título
-    const truncateTitle = (title, maxLength = 60) => {
-        if (title.length <= maxLength) return title;
-        return title.substring(0, maxLength) + '...';
-    };
-
     // Función para expandir/contraer descripción
-    const toggleDescription = (productId) => {
+    const toggleDescription = (productId, e) => {
+        e.stopPropagation();
         setExpandedDescriptions(prev => ({
             ...prev,
             [productId]: !prev[productId]
@@ -39,7 +50,7 @@ function ListarProductos() {
 
     // Función para determinar si mostrar botón "Ver más"
     const shouldShowReadMore = (description) => {
-        return description.length > 200;
+        return description && description.length > 120;
     };
 
     const fetchProducts = async () => {
@@ -47,22 +58,19 @@ function ListarProductos() {
             setLoading(true);
             setError(null);
 
+
             const response = await fetch('http://localhost:5000/products');
-
-            if (!response.ok) {
-                throw new Error(`Error ${response.status}: ${response.statusText}`);
-            }
-
             const result = await response.json();
+  
 
-            if (Array.isArray(result)) {
-                setProducts(result);
-            } else if (result.success && Array.isArray(result.data)) {
+            if (result.success && Array.isArray(result.data)) {
                 setProducts(result.data);
+   
             } else {
                 setError('Formato de respuesta inesperado del servidor');
             }
         } catch (err) {
+            console.error('💥 Error en fetch:', err);
             setError('No se pudo conectar con el servidor: ' + err.message);
         } finally {
             setLoading(false);
@@ -75,7 +83,7 @@ function ListarProductos() {
 
     if (loading) {
         return (
-            <Container className="loading-container">
+            <Container className="my-5 text-center">
                 <Spinner animation="border" role="status" variant="primary">
                     <span className="visually-hidden">Cargando productos...</span>
                 </Spinner>
@@ -86,11 +94,11 @@ function ListarProductos() {
 
     if (error) {
         return (
-            <Container className="error-container">
-                <Alert variant="danger" className="error-alert">
+            <Container className="my-5">
+                <Alert variant="danger">
                     <Alert.Heading>Error</Alert.Heading>
                     <p>{error}</p>
-                    <Button variant="outline-danger" onClick={fetchProducts} className="retry-button">
+                    <Button variant="outline-danger" onClick={fetchProducts}>
                         Reintentar
                     </Button>
                 </Alert>
@@ -99,77 +107,104 @@ function ListarProductos() {
     }
 
     return (
-        <Container className="listar-productos-container">
+        <Container className="my-5">
             <Row className="mb-4">
                 <Col>
-                    <h2 className="listar-productos-title">Nuestros Productos</h2>
-                    <p className="listar-productos-subtitle">
+                    <h2 className="text-center" style={{ color: '#20B2AA' }}>
+                        Nuestros Productos
+                    </h2>
+                    <p className="text-center text-muted">
                         Descubre nuestra selección de productos de calidad
                     </p>
                 </Col>
             </Row>
 
-            {/* Contenedor centrado pero con cards alineadas a la izquierda */}
-            <div className="products-grid-container">
-                <Row className="products-row">
+            {products.length === 0 ? (
+                <Row>
+                    <Col>
+                        <Alert variant="info" className="text-center">
+                            <Alert.Heading>No hay productos</Alert.Heading>
+                            <p>No se encontraron productos disponibles.</p>
+                        </Alert>
+                    </Col>
+                </Row>
+            ) : (
+                <Row className="align-items-stretch">
                     {products.map((product) => (
-                        <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                            <Card className="product-card">
+                        <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex">
+                            <Card 
+                                className="product-card-listar w-100"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                }}
+                            >
                                 <Card.Img
                                     variant="top"
                                     src={product.image || getRandomImage(product.id)}
-                                    className="product-card-image"
+                                    className="product-card-image-listar"
                                     onError={(e) => {
                                         e.target.src = getRandomImage(product.id);
                                     }}
                                 />
-                                <Card.Body className="product-card-body">
-                                    {/* Sección fija para título y categoría */}
-                                    <div className="product-title-section">
-                                        <Card.Title className="product-title" title={product.title}>
+                                <Card.Body className="product-card-body-listar">
+                                    {/* Sección superior: Título + Categoría (altura fija) */}
+                                    <div className="product-header-section">
+                                        <Card.Title
+                                            className="product-title-listar"
+                                            title={product.title}
+                                        >
                                             {truncateTitle(product.title)}
                                         </Card.Title>
 
-                                        <div>
-                                            <span className="badge product-category-badge">
+                                        <div className="mb-2">
+                                            <span
+                                                className="badge"
+                                                style={{ backgroundColor: '#20B2AA', color: 'white' }}
+                                            >
                                                 {product.category}
                                             </span>
                                         </div>
                                     </div>
 
-                                    {/* Descripción - área flexible */}
-                                    <div className="product-description-section">
-                                        <Card.Text 
-                                            className={`product-description ${expandedDescriptions[product.id] ? 'expanded' : 'collapsed'}`}
+                                    {/* Sección media: Descripción (flexible, crece) */}
+                                    <div className="product-description-section-listar">
+                                        <Card.Text
+                                            className="product-description-text-listar"
+                                            style={{ 
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : '3',
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: expandedDescriptions[product.id] ? 'visible' : 'hidden'
+                                            }}
+                                            title={product.description}
                                         >
                                             {expandedDescriptions[product.id] 
                                                 ? product.description 
-                                                : truncateText(product.description, 180)
+                                                : truncateText(product.description, 120)
                                             }
                                         </Card.Text>
-                                        
-                                        {/* Contenedor del botón - siempre presente pero con contenido condicional */}
-                                        <div className="read-more-button-container">
-                                            {shouldShowReadMore(product.description) && (
-                                                <button
-                                                    className="read-more-button"
-                                                    onClick={() => toggleDescription(product.id)}
-                                                >
-                                                    {expandedDescriptions[product.id] ? 'Ver menos' : 'Ver más'}
-                                                </button>
-                                            )}
-                                        </div>
+
+                                        {shouldShowReadMore(product.description) && (
+                                            <button
+                                                onClick={(e) => toggleDescription(product.id, e)}
+                                                className="read-more-btn-listar"
+                                            >
+                                                {expandedDescriptions[product.id] ? 'Ver menos' : 'Ver más'}
+                                            </button>
+                                        )}
                                     </div>
 
-                                    {/* Sección fija para precio y rating */}
-                                    <div className="product-price-section">
-                                        <div className="product-price-rating-container">
-                                            <strong className="product-price">${product.price}</strong>
-                                            {product.ratingRate && (
-                                                <div className="product-rating">
-                                                    ⭐ {product.ratingRate} 
-                                                    {product.ratingCount && ` (${product.ratingCount})`}
-                                                </div>
+                                    {/* Sección inferior: Precio + Rating (siempre al fondo) */}
+                                    <div className="product-footer-section">
+                                        <div className="d-flex justify-content-between align-items-center">
+                                            <strong className="text-success h5 mb-0">${product.price}</strong>
+                                            {product.rating && (
+                                                <span className="text-warning small">
+                                                    ⭐ {product.rating.rate} ({product.rating.count})
+                                                </span>
                                             )}
                                         </div>
                                     </div>
@@ -177,16 +212,6 @@ function ListarProductos() {
                             </Card>
                         </Col>
                     ))}
-                </Row>
-            </div>
-
-            {products.length > 0 && (
-                <Row className="mt-4">
-                    <Col className="text-center">
-                        <p className="products-count">
-                            Mostrando {products.length} productos
-                        </p>
-                    </Col>
                 </Row>
             )}
         </Container>

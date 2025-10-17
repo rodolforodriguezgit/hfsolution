@@ -11,19 +11,27 @@ function EliminarProductos() {
     const [deleting, setDeleting] = useState(false);
     const [success, setSuccess] = useState(false);
 
+        useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     const fetchProducts = async () => {
         try {
             setLoading(true);
             setError(null);
-            console.log('🔄 Cargando productos para eliminar...');
+ 
 
             const response = await fetch('http://localhost:5000/products');
             const result = await response.json();
-            console.log('📦 Resultado:', result);
+     
 
             if (result.success && Array.isArray(result.data)) {
                 setProducts(result.data);
-                console.log('🎉 Productos cargados:', result.data.length);
+     
             } else {
                 setError('Formato de respuesta inesperado del servidor');
             }
@@ -49,14 +57,14 @@ function EliminarProductos() {
 
         try {
             setDeleting(true);
-            console.log('🗑️ Eliminando producto:', productToDelete.id);
+
 
             const response = await fetch(`http://localhost:5000/products/${productToDelete.id}`, {
                 method: 'DELETE'
             });
 
             const result = await response.json();
-            console.log('📦 Respuesta de eliminación:', result);
+
 
             if (result.success || response.ok) {
                 setSuccess(true);
@@ -143,7 +151,7 @@ function EliminarProductos() {
                         Eliminar Productos
                     </h2>
                     <p className="text-center text-muted">
-                        Selecciona un producto para eliminar de la base de datos
+                        Selecciona un producto que dese eliminar
                     </p>
                 </Col>
             </Row>

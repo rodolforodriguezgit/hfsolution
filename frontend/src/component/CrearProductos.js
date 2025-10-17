@@ -20,6 +20,15 @@ function CrearProductos() {
     const [error, setError] = useState(null);
     const [formErrors, setFormErrors] = useState({});
 
+
+        useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     // Cargar categorías al montar el componente
     useEffect(() => {
         fetchCategories();
@@ -147,7 +156,6 @@ function CrearProductos() {
                 }
             };
 
-            console.log('Enviando producto:', productData);
 
             const response = await fetch('http://localhost:5000/products', {
                 method: 'POST',
@@ -158,7 +166,7 @@ function CrearProductos() {
             });
 
             const result = await response.json();
-            console.log('Respuesta del servidor:', result);
+
 
             if (result.success) {
                 setSuccess(true);

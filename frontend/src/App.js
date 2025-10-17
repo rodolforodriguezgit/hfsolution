@@ -30,7 +30,7 @@ function App() {
           <Route path="/actualizar-productos" element={<ActualizarProductos />} />
           <Route path="/editar-producto" element={<EditarProducto />} />
           <Route path="/eliminar-productos" element={<EliminarProductos />} />
-                <Route path="/categorias" element={<Categorias />} />
+          <Route path="/categorias" element={<Categorias />} />
           
       
         </Routes>

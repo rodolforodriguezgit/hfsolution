@@ -1,0 +1,250 @@
+/* src/Styles/ActualizarProductos.css */
+.actualizar-productos-container {
+
+  padding: 0 15px;
+}
+
+/* Loading Styles */
+.actualizar-productos-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.actualizar-productos-spinner {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3em;
+  color: #20B2AA;
+}
+
+.actualizar-productos-loading-text {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Alert Styles */
+.actualizar-productos-alert {
+  border-radius: 10px;
+  border: none;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.actualizar-productos-alert.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 4px solid #dc3545;
+}
+
+.actualizar-productos-empty-alert {
+  border-radius: 10px;
+  border: none;
+  background-color: #d1edff;
+  color: #0c5460;
+  border-left: 4px solid #20B2AA;
+}
+
+.actualizar-productos-retry-btn {
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  border: 2px solid #20B2AA;
+  color: #20B2AA;
+  background: transparent;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.actualizar-productos-retry-btn:hover {
+  background-color: #20B2AA;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(32, 178, 170, 0.3);
+}
+
+/* Title Styles */
+.actualizar-productos-title {
+    padding-top: 20px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #20B2AA;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.actualizar-productos-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Card Styles */
+.actualizar-productos-card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.actualizar-productos-card:hover {
+  transform: translateY(-5px);
+}
+
+.actualizar-productos-card-image {
+  height: 200px;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.actualizar-productos-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.actualizar-productos-card-title {
+  font-size: 0.9rem;
+  height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.actualizar-productos-category-badge {
+  background-color: #20B2AA;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.actualizar-productos-card-description {
+  color: #6c757d;
+  font-size: 0.875rem;
+  height: 60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.actualizar-productos-card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actualizar-productos-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actualizar-productos-price {
+  color: #28a745;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Update Button Styles */
+.actualizar-productos-update-btn {
+  background-color: #20B2AA;
+  border-color: #20B2AA;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+}
+
+.actualizar-productos-update-btn:hover {
+  background-color: #1a9b96;
+  border-color: #1a9b96;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(32, 178, 170, 0.3);
+}
+
+.actualizar-productos-update-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .actualizar-productos-container {
+    margin: 2rem 0;
+  }
+  
+  .actualizar-productos-title {
+    font-size: 2rem;
+  }
+  
+  .actualizar-productos-subtitle {
+    font-size: 1rem;
+  }
+  
+  .actualizar-productos-card-body {
+    padding: 1.25rem;
+  }
+  
+  .actualizar-productos-card-title {
+    font-size: 0.85rem;
+    height: 36px;
+  }
+  
+  .actualizar-productos-card-description {
+    font-size: 0.8rem;
+    height: 54px;
+  }
+}
+
+@media (max-width: 576px) {
+  .actualizar-productos-container {
+    margin: 1.5rem 0;
+    padding: 0 10px;
+  }
+  
+  .actualizar-productos-title {
+    font-size: 1.75rem;
+  }
+  
+  .actualizar-productos-card-body {
+    padding: 1rem;
+  }
+  
+  .actualizar-productos-update-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Grid layout adjustments */
+.actualizar-productos-container .row {
+  margin: 0 -10px;
+}
+
+.actualizar-productos-container .row > [class*="col-"] {
+  padding: 0 10px;
+}

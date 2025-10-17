@@ -47,3 +47,7 @@ Database: mi_base
 Username: postgres
 
 Password: postgres
+
+#### carga de datos
+
+en un inicio carga pobla los datos con json con los datos recibidos en el correo

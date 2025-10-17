@@ -1,4 +1,4 @@
-// src/components/AlternatingSections/AlternatingSections.jsx
+import React, {  useEffect } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 function Banners() {
@@ -19,6 +19,14 @@ function Banners() {
     }
   ];
 
+          useEffect(() => {
+          window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth'
+          });
+      }, []);
+  
   return (
     <Container className="my-5">
       {sections.map((section, index) => {

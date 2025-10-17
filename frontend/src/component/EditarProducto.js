@@ -25,6 +25,17 @@ function EditarProducto() {
     const [error, setError] = useState(null);
     const [formErrors, setFormErrors] = useState({});
 
+
+        useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
+
+
     // Cargar categorías y llenar formulario con datos del producto
     useEffect(() => {
         if (product) {
@@ -163,7 +174,7 @@ function EditarProducto() {
                 }
             };
 
-            console.log('Actualizando producto:', productData);
+
 
             const response = await fetch(`http://localhost:5000/products/${product.id}`, {
                 method: 'PUT',
@@ -174,7 +185,7 @@ function EditarProducto() {
             });
 
             const result = await response.json();
-            console.log('Respuesta del servidor:', result);
+
 
             if (result.success) {
                 setSuccess(true);
@@ -234,7 +245,7 @@ function EditarProducto() {
                     <Card className="editar-producto-card">
                         <Card.Header className="editar-producto-header">
                             <h3 className="mb-0">Editar Producto</h3>
-                            <p className="mb-0">ID: {product.id}</p>
+                          
                         </Card.Header>
                         
                         <Card.Body className="editar-producto-body">

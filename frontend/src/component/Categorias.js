@@ -11,20 +11,29 @@ function Categorias() {
     const [success, setSuccess] = useState(null);
     const [newCategory, setNewCategory] = useState('');
 
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     // Cargar categorías
     const fetchCategories = async () => {
         try {
             setLoading(true);
             setError(null);
-            
+
             const response = await fetch('http://localhost:5000/category');
-            
+
             if (!response.ok) {
                 throw new Error(`Error ${response.status}: ${response.statusText}`);
             }
-            
+
             const result = await response.json();
-            
+
             if (result.success && Array.isArray(result.data)) {
                 setCategories(result.data);
             } else {
@@ -41,7 +50,7 @@ function Categorias() {
     // Crear nueva categoría
     const handleCreateCategory = async (e) => {
         e.preventDefault();
-        
+
         if (!newCategory.trim()) {
             setError('Por favor ingresa el nombre de la categoría');
             return;
@@ -191,7 +200,7 @@ function Categorias() {
                                         <div key={category.id} className="categoria-item">
                                             <div className="categoria-content">
                                                 <span className="categoria-name">{category.name}</span>
-                                               
+
                                             </div>
                                         </div>
                                     ))}

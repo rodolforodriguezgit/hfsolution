@@ -6,6 +6,7 @@
 
 .categorias-header {
   margin-bottom: 2rem;
+  
 }
 
 .categorias-title {
@@ -38,7 +39,7 @@
   border-radius: 10px 10px 0 0;
   padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
+justify-content: center;
   align-items: center;
 }
 
